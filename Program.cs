@@ -56,29 +56,51 @@ namespace HomeWork26._03
             // System.Console.WriteLine($"Вашк список покупок: {spisokPokupok}");
             // Console.WriteLine($"Скидка составляет: {skidka} сомони");
             // System.Console.Write($"Сумма к оплате: {summaPokupki - skidka} сомони"+" \nБлагодарим что выбрали наш магазин, всего доброго. :)");
-            //Задание 3
-            System.Console.Write("Введите первое число: ");
+            // //Задание 3
+            // System.Console.Write("Введите первое число: ");
+            // double a = double.Parse(Console.ReadLine());
+            // System.Console.Write("Введите второе число: ");
+            // double b = double.Parse(Console.ReadLine());
+            // System.Console.Write("Введите третье число: ");
+            // double c = double.Parse(Console.ReadLine());
+            // System.Console.Write("Введите четвертое число: ");
+            // double d = double.Parse(Console.ReadLine());
+            // double min_ = a;
+            // min_ = (a > b)?((b > c)?( (c > d)?d:c):(b > d)?d:b):((a > c)?( (c > d)?d:c):(a > d)?d:a);
+            // if((a == b) && (c == d))
+            // {
+            //     System.Console.WriteLine($"{a*b*c*d}");
+            // }
+            // else if (!(a < b && b < c && c < d))
+            // {
+            //     System.Console.WriteLine("Минимальным из введенных чисел является "+min_);
+            //     System.Console.WriteLine($"Минимальным из введенных чисел является {Math.Min(Math.Min(a,b),Math.Min(c,d))}");
+            // }
+            // else {
+            //     System.Console.WriteLine("Числа расположены по возрастанию");
+            // }
+            System.Console.Write("Введите число a: ");
             double a = double.Parse(Console.ReadLine());
-            System.Console.Write("Введите второе число: ");
+            System.Console.Write("Введите число b: ");
             double b = double.Parse(Console.ReadLine());
-            System.Console.Write("Введите третье число: ");
+            System.Console.Write("Введите число c: ");
             double c = double.Parse(Console.ReadLine());
-            System.Console.Write("Введите четвертое число: ");
-            double d = double.Parse(Console.ReadLine());
-            double min_ = a;
-            min_ = (a > b)?((b > c)?( (c > d)?d:c):(b > d)?d:b):((a > c)?( (c > d)?d:c):(a > d)?d:a);
-            if((a == b) && (c == d))
-            {
-                System.Console.WriteLine($"{a*b*c*d}");
-            }
-            else if (!(a < b && b < c && c < d))
-            {
-                System.Console.WriteLine("Минимальным из введенных чисел является "+min_);
-                System.Console.WriteLine($"Минимальным из введенных чисел является {Math.Min(Math.Min(a,b),Math.Min(c,d))}");
-            }
-            else {
-                System.Console.WriteLine("Числа расположены по возрастанию");
-            }
+            System.Console.WriteLine((a>=b && b >= c)?$"(a = {a}) >= (b = {b}) >= (c = {c})":
+            (a >= c && c >=b)?$"(a = {a}) >= (b = {c}) >= (c = {b})":
+            (b >= a && a >=c)?$"(a = {b}) >= (b = {a}) >= (c = {c})":
+            (b >= c && c >= a)?$"(a = {b}) >= (b = {c}) >= (c = {a})":
+            (c >= a && a >= b)?$"(a = {c}) >= (b = {a}) >= (c = {b})":
+            $"(a = {c}) >= (b = {b}) >= (c = {a})");
+            //or
+            double zamA = a;
+            double zamC = c;
+            a = (a > b && a > c)?a:(b > a && b > c)?b:c;
+            c = (zamA < b && zamA < c)?zamA:(b < zamA && b < c)?b:c;
+            //b = zamA + zamC + b - a - c;
+            b = ((zamA > b && b > zamC)||(zamC > b && b > zamA))?b:
+            ((b > zamA && zamA > zamC)||(zamC> zamA && zamA > b))?zamA:
+            zamC;
+            System.Console.WriteLine($"(a = {a}) >= (b = {b}) >= (c = {c})");
             Console.ReadKey();
         }
     }
